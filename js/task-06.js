@@ -10,7 +10,7 @@ const input = document.querySelector("#validation-input");
 function onInputBlur(event) {
   const inputLength = input.getAttribute("data-length");
   const inputClassList = event.currentTarget.classList;
-  if (event.currentTarget.value.length < Number(inputLength)) {
+  if (event.currentTarget.value.length !== Number(inputLength)) {
     inputClassList.remove("valid");
     inputClassList.add("invalid");
     return;

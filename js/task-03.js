@@ -23,16 +23,18 @@ const images = [
 // Добавь минимальное оформление галереи флексбоксами или гридами через CSS классы.
 
 const galleryListRef = document.querySelector(".gallery");
-galleryListRef.style.display = 'flex';
-galleryListRef.style.listStyleType = 'none';
-galleryListRef.style.gap = '30px'
-images.forEach((element) => {
-  const galleryItemRef = document.createElement("li");
-  const galleryImgRef = document.createElement("img");
-  galleryItemRef.append(galleryImgRef);
-  galleryListRef.append(galleryItemRef);
-  galleryImgRef.src = element.url;
-  galleryImgRef.alt = element.alt;
-  galleryImgRef.setAttribute("width", 300);
-});
-console.log(galleryListRef);
+galleryListRef.style.display = "flex";
+galleryListRef.style.listStyleType = "none";
+galleryListRef.style.gap = "30px";
+
+const markup = images
+  .map(
+    (image) =>
+      `<li><img src="${image.url}" alt="${image.alt}"  width="300"></li>`
+  )
+  .join("");
+console.log(markup);
+
+galleryListRef.insertAdjacentHTML("afterbegin", markup);
+
+

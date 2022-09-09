@@ -27,15 +27,17 @@ input.addEventListener("input", (event) => {
 });
 
 const divArray = [];
+let sum = 0;
 
-function createBoxes(amout) {
-  amout = input.value;
-  for (let i = 1; i <= amout; i += 1) {
+function createBoxes(amount) {
+  amount = input.value;  
+  for (let i = 1; i <= amount; i += 1) {
+    sum += i
     const divElement = `<div style = "background-color: ${getRandomHexColor()}; width: ${
-      30 + i * 10
-    }px; height: ${30 + i * 10}px"></div>`;
+      30 + sum * 10
+    }px; height: ${30 + sum * 10}px"></div>`;
     divArray.push(divElement);
-    console.log(divArray);
+    console.log(divArray);   
   }
   boxesDivRef.innerHTML = divArray.join("");
 }

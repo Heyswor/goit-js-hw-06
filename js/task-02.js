@@ -14,9 +14,11 @@ const ingredients = [
 // Добавит элементу класс item.
 // После чего вставит все <li> за одну операцию в список ul#ingredients.
 const ingredientsRef = document.querySelector("#ingredients");
+const createLiArray = [];
 ingredients.forEach((element) => {
   const itemRef = document.createElement("li");
-  itemRef.textContent = element;
   itemRef.classList = "item";
-  ingredientsRef.append(itemRef);
+  itemRef.textContent = element;
+  createLiArray.push(itemRef);
 });
+ingredientsRef.append(...createLiArray);
